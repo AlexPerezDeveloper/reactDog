@@ -18,43 +18,36 @@ function Single(props) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios("https://dog.ceo/api/breed/"+slug+"/images");
+      const result = await axios("https://dog.ceo/api/breed/" + slug + "/images");
       setData(result.data.message);
       //console.log(result.data.message);
     };
     fetchData();
-  }, []);
-
-  useEffect(() => {
     setCurrentData(data.slice(offset, offset + pageLimit));
   }, [offset, data]);
- 
 
+  
   return (
     <div>
-      <Header/>
       <div className="container">
         <p>Resultado para la raza <span>{slug}:</span></p>
       </div>
       <div className="dog-imgaes container-fluid">
-       
-        { currentData.map(dat => <img src={dat} className="img-responsive animated fadeIn delay-1s" alt={slug}/> )}
-      <br/><br/>
-      <div class="text-center">
-        <a href="/">Volver al inicio</a>
-      <Paginator
-        totalRecords={data.length}
-        pageLimit={pageLimit}
-        pageNeighbours={2}
-        setOffset={setOffset}
-        currentPage={currentPage}
-        setCurrentPage={setCurrentPage}
-      />              </div>
-            
 
+        {currentData.map(dat => <img src={dat} className="img-responsive animated fadeIn delay-1s" alt={slug} />)}
+        <br /><br />
+        <div class="text-center">
+          <a href="/">Volver al inicio</a>
+          <Paginator
+            totalRecords={data.length}
+            pageLimit={pageLimit}
+            pageNeighbours={2}
+            setOffset={setOffset}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}/>  
+        </div>
       </div>
-      <br/><br/>
-      <Footer/>
+      <br /><br />
     </div>
   );
 }

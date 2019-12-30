@@ -4,17 +4,17 @@ import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import App from './App';
 import "./styles.css";
 
 import Selector from "./screens/Selector";
 import Single from "./screens/Single";
 
-const routes = (
+const content = (
   <Router>
-    <Switch>
-      <Route exact path="/" component={Selector} />
-      <Route exact path="/:slug" component={Single} />
-    </Switch>
+    <App />
   </Router>
 );
-ReactDOM.render(routes, document.getElementById("root"));
+ReactDOM.render(content, document.getElementById("root"));
