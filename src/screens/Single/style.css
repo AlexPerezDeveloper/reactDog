@@ -1,0 +1,9 @@
+.dog-imgaes {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.dog-imgaes img {
+    padding: 10px;
+    max-width: 500px;
+}
